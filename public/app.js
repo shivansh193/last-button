@@ -212,7 +212,10 @@ function render() {
     // Row heights depend on web fonts; measure again once they have loaded.
     document.fonts?.ready.then(() => grid.resetRowHeights());
     setTimeout(() => grid.resetRowHeights(), 600);
-  } else grid.setGridOption("rowData", M.rows);
+  } else {
+    grid.setGridOption("rowData", M.rows);
+    requestAnimationFrame(() => grid.resetRowHeights());
+  }
 
   renderOutputs(c);
   if (openRowId) openDrawer(openRowId, true);
@@ -237,6 +240,15 @@ function renderOutputs(c) {
   $("#json").href = `/api/m/${id}/export.json`;
 }
 
+function plain(k, v) {
+  if (v == null) return "none";
+  if (k === "shipping") return `${v.first}${v.additional ? `, then ${v.additional} per extra item` : ""}`;
+  if (k === "quantity") return v.adjustable ? `buyer picks, up to ${v.max}` : "1 per purchase";
+  if (k === "variants") return `${v.dimension}: ${v.options.map((o) => `${o.label}${o.price ? ` ${o.price}` : ""}`).join(", ")}`;
+  if (k === "taxPercent") return `${v}%`;
+  return String(v);
+}
+
 function openDrawer(rowId, refresh) {
   const row = M.rows.find((r) => r.button.id === rowId);
   if (!row) return;
@@ -252,7 +264,7 @@ function openDrawer(rowId, refresh) {
     withKeys(s);
     const rows = ["name", "price", "currency", "variants", "shipping", "taxPercent", "quantity", "returnUrl"].map((k) => {
       const f = s[k];
-      const val = f.value == null ? "none" : typeof f.value === "object" ? JSON.stringify(f.value) : f.value;
+      const val = plain(k, f.value);
       const where = f.prov.source === "page_context" && f.prov.quote ? `<span class="quote">“${esc(f.prov.quote)}”</span>` : esc(f.prov.field || f.prov.note || "");
       return `<tr><td><b>${k}</b></td><td class="mono">${esc(val)}</td><td>${provBadge(f, row)}<br>${where}</td></tr>`;
     });

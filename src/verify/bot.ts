@@ -112,7 +112,8 @@ export async function payThroughLink(linkUrl: string, opts: { variant?: string |
     orderId = orderId ?? finalUrl.match(/\/ncp\/payment\/[^/]+\/([A-Z0-9]+)/)?.[1] ?? null;
     mkdirSync(path.join(DATA_DIR, "screens"), { recursive: true });
     const shot = `${opts.tag}-${orderId ?? Date.now()}.png`;
-    await page.screenshot({ path: path.join(DATA_DIR, "screens", shot), fullPage: false }).catch(() => {});
+    // Top of the confirmation only: amount, item and option. Keeps the buyer's details out.
+    await page.screenshot({ path: path.join(DATA_DIR, "screens", shot), clip: { x: 0, y: 0, width: 1200, height: 520 } }).catch(() => {});
     say(`done: ${finalUrl.replace(/\?.*/, "")}`);
     return { orderId, captureId, pageTotal, confirmationText: text.slice(0, 2000), finalUrl, screenshot: shot, log };
   } catch (e: any) {

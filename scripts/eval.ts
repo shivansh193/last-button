@@ -141,8 +141,7 @@ const summary = {
     routedToOwner: `${routed}/${scored.length} (${pct(routed, scored.length)})`,
     silentErrors,
   },
-  verification: { runs: verifs.length, passed: vOk, passRate: pct(vOk, verifs.length), failures: verifs.filter((v) => !v.ok).map((v) => (v.problems[0] ?? "").split("
-")[0]) },
+  verification: { runs: verifs.length, passed: vOk, passRate: pct(vOk, verifs.length), failures: verifs.filter((v) => !v.ok).map((v) => (v.problems[0] ?? "").split(/\r?\n/)[0]) },
   seconds: Math.round((Date.now() - t0) / 1000),
   perButton: results,
 };

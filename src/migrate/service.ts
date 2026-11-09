@@ -184,7 +184,15 @@ export async function verifyRow(row: MigrationRow): Promise<Verification> {
   const problems: string[] = [];
   let bot;
   try {
-    bot = await payThroughLink(row.link!.url, { variant, quantity: 1, tag: row.link!.id });
+    try {
+      bot = await payThroughLink(row.link!.url, { variant, quantity: 1, tag: row.link!.id });
+    } catch (first: any) {
+      // The sandbox sometimes shows "Things don't appear to be working". Retry once,
+      // but never after an order was created (that payment may have gone through).
+      if (first.orderId) throw first;
+      await new Promise((r) => setTimeout(r, 5000));
+      bot = await payThroughLink(row.link!.url, { variant, quantity: 1, tag: row.link!.id });
+    }
   } catch (e: any) {
     row.verification = {
       at: new Date().toISOString(), variant, quantity: 1, expectedTotal: exp.total, paidTotal: null, orderId: e.orderId ?? null, captureId: null,
