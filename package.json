@@ -1,0 +1,26 @@
+{
+  "name": "last-button",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Finds legacy PayPal Website Payments Standard buttons on a site and rebuilds them as verified PayPal Payment Links.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "spike:link": "tsx scripts/spike-1-create-link.ts",
+    "spike:pay": "tsx scripts/spike-2-buyer-bot.ts",
+    "spike:webhook": "tsx scripts/spike-3-webhook.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "playwright": "^1.64.0"
+  }
+}
