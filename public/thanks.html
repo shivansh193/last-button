@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Payment received</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<main class="wrap" style="padding:80px 16px;max-width:560px">
+  <h1 style="font-size:36px">Payment received</h1>
+  <p>This was a PayPal sandbox payment through a Payment Link made by Last Button. No real money moved.</p>
+  <p id="ref" class="mono"></p>
+  <p><a href="/">Back to Last Button</a></p>
+</main>
+<script>
+  const p = new URLSearchParams(location.search);
+  if (p.get("tx")) document.getElementById("ref").textContent = `Transaction ${p.get("tx")}, ${p.get("amt") || ""} ${p.get("cc") || ""}, ${p.get("st") || ""}`;
+</script>
+</body>
+</html>

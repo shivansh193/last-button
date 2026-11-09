@@ -1,0 +1,551 @@
+{
+  "at": "2026-11-09T19:39:49.015Z",
+  "ai": "gemini-3.5-flash",
+  "sites": 4,
+  "buttons": 21,
+  "detection": {
+    "affectedExpected": 17,
+    "truePositives": 17,
+    "falseNegatives": 0,
+    "falsePositives": 0,
+    "precision": 1,
+    "recall": 1,
+    "donateSubscribeLeftAlone": "4/4"
+  },
+  "reconstruction": {
+    "buttonsScored": 17,
+    "fieldAccuracy": {
+      "name": "17/17",
+      "price": "17/17",
+      "currency": "17/17",
+      "variants": "17/17",
+      "shipping": "17/17",
+      "taxPercent": "17/17",
+      "quantity": "17/17"
+    },
+    "overallFieldAccuracy": "100%",
+    "bySource": {
+      "html_field": "66/66",
+      "default": "17/17",
+      "page_context": "35/35",
+      "unknown": "1/1"
+    },
+    "buttonsAllFieldsCorrect": "17/17",
+    "hiddenButtonsPriceRecovered": "6/6",
+    "routedToOwner": "7/17 (41.2%)",
+    "silentErrors": []
+  },
+  "verification": {
+    "runs": 4,
+    "passed": 3,
+    "passRate": "75%",
+    "failures": [
+      "The buyer bot couldn't finish: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Users\\Shivansh Kalra\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-dev-shm-usage --no-sandbox --user-data-dir=C:\\Users\\Shivansh Kalra\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-ZmWHYi --remote-debugging-pipe --no-startup-window\n<launched> pid=63796\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Shivansh Kalra\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-dev-shm-usage --no-sandbox --user-data-dir=C:\\Users\\Shivansh Kalra\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-ZmWHYi --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=63796\u001b[22m\n\u001b[2m  - [pid=63796] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=63796] <kill>\u001b[22m\n\u001b[2m  - [pid=63796] <will force kill>\u001b[22m\n\u001b[2m  - [pid=63796] <process did exit: exitCode=3221225794, signal=null>\u001b[22m\n\u001b[2m  - [pid=63796] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=63796] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=63796] <gracefully close end>\u001b[22m\n"
+    ]
+  },
+  "seconds": 64,
+  "perButton": [
+    {
+      "site": "demo-site",
+      "key": "adult-ticket",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "demo-site",
+      "key": "concession-ticket",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "demo-site",
+      "key": "tshirt",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "demo-site",
+      "key": "bundle-cart",
+      "kind": "add_to_cart",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "html_field",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "demo-site",
+      "key": "raffle",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "demo-site",
+      "key": "season-pass-hosted",
+      "kind": "hosted",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "page_context",
+        "price": "page_context",
+        "currency": "page_context",
+        "variants": "page_context",
+        "shipping": "page_context",
+        "taxPercent": "page_context",
+        "quantity": "default"
+      },
+      "needsOwner": [
+        "price"
+      ],
+      "usedAI": true
+    },
+    {
+      "site": "demo-site",
+      "key": "gift-voucher-encrypted",
+      "kind": "encrypted",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "page_context",
+        "price": "page_context",
+        "currency": "page_context",
+        "variants": "page_context",
+        "shipping": "unknown",
+        "taxPercent": "page_context",
+        "quantity": "default"
+      },
+      "needsOwner": [
+        "shipping",
+        "price"
+      ],
+      "usedAI": true
+    },
+    {
+      "site": "demo-site",
+      "key": "donate",
+      "kind": "donate",
+      "detected": true,
+      "affectedOk": true
+    },
+    {
+      "site": "demo-site",
+      "key": "friends-subscribe",
+      "kind": "subscribe",
+      "detected": true,
+      "affectedOk": true
+    },
+    {
+      "site": "wordpress-style",
+      "key": "mug-link",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "wordpress-style",
+      "key": "bowl-glaze",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "wordpress-style",
+      "key": "workshop-flat-tax",
+      "kind": "add_to_cart",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "default",
+        "taxPercent": "html_field",
+        "quantity": "html_field"
+      },
+      "needsOwner": [
+        "taxPercent"
+      ],
+      "usedAI": false
+    },
+    {
+      "site": "wordpress-style",
+      "key": "hosted-donate",
+      "kind": "donate",
+      "detected": true,
+      "affectedOk": true
+    },
+    {
+      "site": "inline-table",
+      "key": "harvest-hosted",
+      "kind": "hosted",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "page_context",
+        "price": "page_context",
+        "currency": "page_context",
+        "variants": "page_context",
+        "shipping": "page_context",
+        "taxPercent": "page_context",
+        "quantity": "default"
+      },
+      "needsOwner": [
+        "price"
+      ],
+      "usedAI": true
+    },
+    {
+      "site": "inline-table",
+      "key": "quiz-hosted",
+      "kind": "hosted",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "page_context",
+        "price": "page_context",
+        "currency": "page_context",
+        "variants": "page_context",
+        "shipping": "page_context",
+        "taxPercent": "page_context",
+        "quantity": "default"
+      },
+      "needsOwner": [
+        "price"
+      ],
+      "usedAI": true
+    },
+    {
+      "site": "inline-table",
+      "key": "fair-hosted",
+      "kind": "hosted",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "page_context",
+        "price": "page_context",
+        "currency": "page_context",
+        "variants": "page_context",
+        "shipping": "page_context",
+        "taxPercent": "page_context",
+        "quantity": "default"
+      },
+      "needsOwner": [
+        "price"
+      ],
+      "usedAI": true
+    },
+    {
+      "site": "inline-table",
+      "key": "deposit",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "default",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "inline-table",
+      "key": "weekly-giving",
+      "kind": "subscribe",
+      "detected": true,
+      "affectedOk": true
+    },
+    {
+      "site": "js-injected",
+      "key": "learn-to-row",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "js-injected",
+      "key": "regatta-entry",
+      "kind": "buy_now",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "html_field",
+        "price": "html_field",
+        "currency": "html_field",
+        "variants": "html_field",
+        "shipping": "html_field",
+        "taxPercent": "default",
+        "quantity": "html_field"
+      },
+      "needsOwner": [],
+      "usedAI": false
+    },
+    {
+      "site": "js-injected",
+      "key": "hoodie-encrypted",
+      "kind": "encrypted",
+      "detected": true,
+      "affectedOk": true,
+      "fields": {
+        "name": true,
+        "price": true,
+        "currency": true,
+        "variants": true,
+        "shipping": true,
+        "taxPercent": true,
+        "quantity": true
+      },
+      "sources": {
+        "name": "page_context",
+        "price": "page_context",
+        "currency": "page_context",
+        "variants": "page_context",
+        "shipping": "page_context",
+        "taxPercent": "page_context",
+        "quantity": "default"
+      },
+      "needsOwner": [
+        "price"
+      ],
+      "usedAI": true
+    }
+  ]
+}

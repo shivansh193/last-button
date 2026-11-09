@@ -1,1 +1,101 @@
-<!doctype html><title>x</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your buttons · Last Button</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-grid.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-theme-quartz.css" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Last Button</a>
+  <nav><a href="/">New scan</a><a href="https://github.com/shivansh193/last-button">GitHub</a></nav>
+</header>
+
+<main class="page">
+  <section class="head">
+    <div>
+      <div class="eyebrow" id="scanned">Loading…</div>
+      <h1 id="title">Your PayPal buttons</h1>
+      <p class="sub" id="subtitle"></p>
+    </div>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="bar" id="bar">
+    <div class="bar-left" id="next-step"></div>
+    <div class="bar-right">
+      <button class="btn secondary small" id="confirm-all" hidden>Confirm all as shown</button>
+      <button class="btn small" id="make-links" disabled>Create Payment Links</button>
+      <button class="btn ok small" id="verify" disabled>Run verification</button>
+    </div>
+  </section>
+
+  <div id="grid" class="ag-theme-quartz grid" role="region" aria-label="Migration table"></div>
+  <p class="legend">
+    <span class="pv html">HTML</span> copied from the old button's code ·
+    <span class="pv ai">AI · page</span> read from your page by Gemini (hover for the exact quote) ·
+    <span class="pv owner">needs your OK</span> waiting for your click ·
+    <span class="pv yes">confirmed</span> you checked it ·
+    <span class="pv dflt">default</span> PayPal's usual behaviour
+  </p>
+
+  <section class="outputs" id="outputs" hidden>
+    <h2>Swap them in</h2>
+    <p class="sub">Pick whichever suits how your site is run. Nothing changes on your site until you do this.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Patched pages</h3>
+        <p>Your pages with each old button replaced by its new PayPal Payment Link. Upload them over the old files.</p>
+        <div id="patched-list"></div>
+      </div>
+      <div class="card">
+        <h3>One line in your template</h3>
+        <p>Paste this once, before <code>&lt;/body&gt;</code>. It swaps the buttons as each page loads, including ones made by JavaScript.</p>
+        <pre class="code" id="swap-line"></pre>
+        <button class="btn secondary small" data-copy="swap-line">Copy</button>
+      </div>
+      <div class="card">
+        <h3>A list of every link</h3>
+        <p>For your records, or to paste links into a page builder by hand.</p>
+        <p><a class="btn secondary small" id="csv" href="#">Download CSV</a> <a class="btn secondary small" id="json" href="#">JSON</a></p>
+      </div>
+      <div class="card">
+        <h3>Let AI shopping agents buy too</h3>
+        <p>schema.org Product markup pointing at the new links, so assistants that shop on people's behalf can find a working checkout.</p>
+        <button class="btn secondary small" id="jsonld-btn">Show markup</button>
+        <pre class="code" id="jsonld" hidden></pre>
+      </div>
+    </div>
+  </section>
+</main>
+
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-in">
+    <button class="x" id="drawer-close" aria-label="Close">×</button>
+    <div id="drawer-body"></div>
+  </div>
+</aside>
+
+<dialog id="edit">
+  <form method="dialog" id="edit-form">
+    <h2>Check the details</h2>
+    <p class="sub" id="edit-sub"></p>
+    <div class="fields" id="edit-fields"></div>
+    <div class="dlg-actions">
+      <button class="btn secondary small" value="cancel">Cancel</button>
+      <button class="btn small" id="edit-save" value="save">Save and confirm</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/dist/ag-grid-community.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

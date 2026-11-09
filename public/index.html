@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Last Button: rescue your old PayPal buttons</title>
+<meta name="description" content="Paste your website's address. Last Button finds every old PayPal button that may stop working after January 1, 2027, rebuilds it as a PayPal Payment Link, and proves each new link takes a payment." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<style>
+  .hero { padding: 64px 0 28px; }
+  .deadline { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: var(--amber); background: var(--amber-soft); border-radius: 999px; padding: 4px 12px; font-weight: 600; }
+  .hero h1 { font-size: clamp(34px, 5.4vw, 58px); line-height: 1.04; margin: 18px 0 18px; max-width: 15ch; }
+  .lede { font-size: 18px; color: var(--ink-2); max-width: 60ch; margin: 0 0 8px; }
+  blockquote { margin: 22px 0 0; padding: 12px 16px; border-left: 3px solid var(--ink); background: var(--card); max-width: 62ch; font-family: var(--serif); font-size: 19px; }
+  blockquote cite { display: block; font: 13px var(--sans); color: var(--ink-3); margin-top: 4px; font-style: normal; }
+  .scan { margin-top: 36px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; max-width: 760px; box-shadow: 0 1px 0 var(--line); }
+  .scan label { font-weight: 600; font-size: 14px; display: block; margin-bottom: 8px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .scan input[type=url] { flex: 1 1 320px; min-width: 0; font: 16px var(--sans); padding: 11px 14px; border: 1px solid var(--line-2); border-radius: 999px; background: #fff; color: var(--ink); }
+  .scan input:focus, .scan textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .scan .alt { margin-top: 14px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 14px; color: var(--ink-3); }
+  .linkish { background: none; border: 0; color: var(--accent); font: inherit; text-decoration: underline; cursor: pointer; padding: 0; }
+  textarea { width: 100%; min-height: 150px; margin-top: 12px; font: 13px/1.4 var(--mono); padding: 12px; border: 1px solid var(--line-2); border-radius: 8px; background: #fff; }
+  .progress { margin-top: 16px; font-size: 14px; color: var(--ink-2); display: none; }
+  .progress ol { margin: 6px 0 0; padding-left: 20px; }
+  .progress li.done { color: var(--accent); }
+  .progress li.now { font-weight: 600; }
+  .err { color: var(--red); margin-top: 12px; font-size: 14px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 64px; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .step .n { font: 500 13px var(--mono); color: var(--ink-3); }
+  .step h3 { font-size: 22px; margin: 6px 0 8px; }
+  .step p { margin: 0; color: var(--ink-2); font-size: 14px; }
+  .who { margin-top: 56px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: start; }
+  .who h2 { font-size: 30px; margin-bottom: 10px; }
+  .who p { color: var(--ink-2); }
+  table.kinds { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: 14px; }
+  table.kinds td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.kinds tr:last-child td { border-bottom: 0; }
+  .not { margin-top: 48px; font-size: 14px; color: var(--ink-3); max-width: 70ch; }
+  @media (max-width: 820px) { .steps, .who { grid-template-columns: 1fr; } .hero { padding-top: 40px; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Last Button</a>
+  <nav>
+    <a href="/demo-site/" target="_blank">Demo site</a>
+    <a id="snap-link" href="#" hidden>Finished demo run</a>
+    <a href="https://github.com/shivansh193/last-button">GitHub</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="deadline"><span class="dot"></span> <span id="countdown">January 1, 2027</span></span>
+    <h1>Your old PayPal buttons may stop working.</h1>
+    <p class="lede">Paste your website's address. Last Button finds every old PayPal button, rebuilds it as a PayPal Payment Link with the same product, options, postage and tax, and proves each new link takes a payment before you swap it in.</p>
+    <blockquote>"PayPal may retire WPS anytime after January 1, 2027."
+      <cite>PayPal Developer, <a href="https://developer.paypal.com/limited-release/multiparty/wps-deprecation/">Website Payments Standard deprecation</a>. Buy Now and Add to Cart buttons are affected; Donate and Subscribe are not.</cite>
+    </blockquote>
+
+    <form class="scan" id="scan-form" autocomplete="off">
+      <label for="url">Your website's address</label>
+      <div class="row">
+        <input type="url" id="url" name="url" placeholder="https://www.your-club.org" inputmode="url" />
+        <button class="btn" id="go" type="submit">Find my buttons</button>
+      </div>
+      <div class="alt">
+        <button type="button" class="btn secondary small" id="demo">Try the demo site</button>
+        <span>A pretend 2010 theatre site with 9 old buttons.</span>
+        <button type="button" class="linkish" id="paste-toggle">or paste a page's HTML</button>
+      </div>
+      <textarea id="html" placeholder="Paste the HTML of a page that has PayPal buttons" hidden></textarea>
+      <div class="progress" id="progress">
+        <ol>
+          <li data-s="0">Reading your pages (same site only, up to 30, respecting robots.txt)</li>
+          <li data-s="1">Finding PayPal buttons, including ones built by JavaScript</li>
+          <li data-s="2">Rebuilding each one; AI reads the page for buttons whose settings are hidden</li>
+        </ol>
+      </div>
+      <div class="err" id="err" role="alert"></div>
+    </form>
+  </section>
+
+  <section class="steps" aria-label="How it works">
+    <div class="step"><div class="n">01 / Find</div><h3>Every button, on every page</h3><p>Buy Now, Add to Cart, saved and encrypted buttons are flagged. Donate and Subscribe buttons are noticed and left alone, because PayPal says they aren't affected.</p></div>
+    <div class="step"><div class="n">02 / Rebuild</div><h3>Same price, options, postage, tax</h3><p>Readable settings are copied exactly. For saved or encrypted buttons, Gemini reads the page around them and must quote the words it used. Prices it found wait for your one click.</p></div>
+    <div class="step"><div class="n">03 / Prove</div><h3>A real sandbox payment, checked</h3><p>A test buyer pays through each new PayPal Payment Link. The order is read back from PayPal and the amount checked against price + postage + tax. Only then does a row turn green.</p></div>
+  </section>
+
+  <section class="who">
+    <div>
+      <h2>Made for the people who pasted a button in 2009</h2>
+      <p>Theatres, churches, clubs, craft sellers, old WordPress and static sites. The button code was copied from PayPal years ago and now lives in a CMS nobody wants to touch. Plugins such as <a href="https://docs.gravityforms.com/paypal-payments-standard-add-on-end-of-life/">Gravity Forms</a> and <a href="https://help.gettimely.com/hc/en-gb/articles/42941175737239-PayPal-integration-ending-in-Timely">Timely</a> are already warning their users. Pasted buttons get no warning at all.</p>
+      <p>You get a patched page to download, a one-line script that swaps the buttons for you, and a spreadsheet of every new link.</p>
+    </div>
+    <table class="kinds" aria-label="Which buttons are affected">
+      <tr><td><b>Buy Now</b> <span class="mono">cmd=_xclick</span></td><td><span class="pill amber">may stop working</span></td></tr>
+      <tr><td><b>Add to Cart</b> <span class="mono">cmd=_cart</span></td><td><span class="pill amber">may stop working</span></td></tr>
+      <tr><td><b>Saved / encrypted</b> <span class="mono">_s-xclick</span></td><td><span class="pill amber">may stop working</span></td></tr>
+      <tr><td><b>Donate</b> <span class="mono">_donations</span></td><td><span class="pill grey">not affected</span></td></tr>
+      <tr><td><b>Subscribe</b> <span class="mono">_xclick-subscriptions</span></td><td><span class="pill grey">not affected</span></td></tr>
+    </table>
+  </section>
+
+  <p class="not">Last Button runs on the PayPal sandbox: links it creates are test links, and the buyer is a test account. It does not touch your live site; you choose when to swap the buttons in.</p>
+</main>
+
+<footer class="foot">
+  <div class="wrap">Built with PayPal Payment Links and Buttons, Orders v2 and webhooks; Gemini; Playwright; AG Grid; Render. MIT licensed. <a href="https://github.com/shivansh193/last-button">Source on GitHub</a>.</div>
+</footer>
+
+<script>
+  const $ = (s) => document.querySelector(s);
+  const days = Math.ceil((Date.UTC(2027, 0, 1) - Date.now()) / 86400000);
+  if (days > 0) $("#countdown").textContent = `${days} days until January 1, 2027`;
+
+  fetch("/api/config").then((r) => r.json()).then((c) => {
+    window.__cfg = c;
+    if (c.demoSnapshot) { const a = $("#snap-link"); a.href = `/m/${c.demoSnapshot}`; a.hidden = false; }
+  }).catch(() => {});
+
+  $("#paste-toggle").onclick = () => { const t = $("#html"); t.hidden = !t.hidden; if (!t.hidden) t.focus(); };
+
+  let timer;
+  function busy(on) {
+    $("#go").disabled = on; $("#demo").disabled = on;
+    $("#go").innerHTML = on ? '<span class="spin"></span> Looking…' : "Find my buttons";
+    const p = $("#progress"); p.style.display = on ? "block" : "none";
+    clearInterval(timer);
+    if (on) {
+      let s = 0; const lis = [...p.querySelectorAll("li")];
+      const paint = () => lis.forEach((li, i) => { li.className = i < s ? "done" : i === s ? "now" : ""; });
+      paint(); timer = setInterval(() => { if (s < lis.length - 1) s++; paint(); }, 2600);
+    }
+  }
+  async function scan(body) {
+    $("#err").textContent = ""; busy(true);
+    try {
+      const r = await fetch("/api/scan", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.error || "Something went wrong.");
+      location.href = `/m/${j.id}`;
+    } catch (e) { $("#err").textContent = e.message; busy(false); }
+  }
+  $("#scan-form").onsubmit = (e) => {
+    e.preventDefault();
+    const html = $("#html").value.trim();
+    if (!$("#html").hidden && html) return scan({ html });
+    let url = $("#url").value.trim();
+    if (!url) { $("#err").textContent = "Type your website's address, or try the demo site."; return; }
+    if (!/^https?:\/\//i.test(url)) url = "https://" + url;
+    scan({ url });
+  };
+  $("#demo").onclick = () => scan({ url: (window.__cfg && window.__cfg.demoUrl) || location.origin + "/demo-site/" });
+</script>
+</body>
+</html>
