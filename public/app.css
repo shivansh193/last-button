@@ -93,6 +93,9 @@ dialog h2 { font-size: 26px; margin-bottom: 4px; }
 
 @media (max-width: 720px) {
   .page { padding: 0 16px 40px; }
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; gap: 8px; }
+  .tile { min-width: 0; padding: 8px 10px; }
+  .head h1 { font-size: 30px; }
   .bar { top: 55px; }
   .fields { grid-template-columns: 1fr; }
 }

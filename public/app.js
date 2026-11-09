@@ -192,6 +192,8 @@ function render() {
 
   $("#confirm-all").hidden = c.owner < 2;
   $("#make-links").disabled = !c.ready;
+  $("#make-links").hidden = !c.ready && c.links > 0;
+  $("#verify").hidden = !c.links || (!c.unverified && !c.verifying);
   $("#make-links").textContent = c.ready ? `Create ${c.ready} Payment Link${c.ready > 1 ? "s" : ""}` : "Create Payment Links";
   $("#verify").disabled = !c.unverified || c.verifying > 0;
   $("#verify").innerHTML = c.verifying ? `<span class="spin"></span> Verifying ${c.verifying}…` : c.unverified ? `Verify ${c.unverified} link${c.unverified > 1 ? "s" : ""}` : "Run verification";

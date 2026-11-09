@@ -33,7 +33,7 @@ export function patchHtml(html: string, rows: MigrationRow[]): { html: string; r
     i++;
     // Only replace when the fingerprint still matches (the page may have changed since the scan).
     if (row && d && d.fingerprint === row.button.fingerprint) {
-      $(el).replaceWith(`<!-- Last Button: replaced a legacy PayPal ${row.button.kind.replace("_", " ")} button -->\n${replacementHtml(row)}`);
+      $(el).replaceWith(`<!-- Last Button: replaced a legacy PayPal ${row.button.kind.replace(/_/g, " ")} button -->\n${replacementHtml(row)}`);
       replaced++;
     }
   });
