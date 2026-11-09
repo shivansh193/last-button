@@ -41,7 +41,10 @@ ctx.on("response", (r) => {
   }
 });
 
-await page.goto(url, { waitUntil: "networkidle" });
+// The sandbox page keeps polling, so "networkidle" is unreliable. Wait for the variant select instead.
+await page.goto(url, { waitUntil: "load", timeout: 60000 });
+await page.locator("select, iframe[src*='smart/buttons']").first().waitFor({ timeout: 30000 }).catch(() => {});
+await page.waitForTimeout(2000);
 await snap(page, "link-page");
 
 // Pick the variant from a dropdown, or click it by text.
@@ -82,6 +85,9 @@ const pay: Page = (await popupPromise) ?? page;
 await pay.waitForLoadState("domcontentloaded");
 await pay.waitForTimeout(3000);
 await snap(pay, "after-paypal-click");
+// The checkout URL carries the Orders v2 order ID as ?token=.
+const orderToken = new URL(pay.url()).searchParams.get("token");
+console.log("order token from checkout URL:", orderToken);
 
 // Log in: email, next, password, login (tolerates the single-page variant).
 const emailBox = pay.locator('#email, input[name="login_email"]').first();
@@ -92,7 +98,8 @@ if (await next.isVisible().catch(() => false)) await next.click();
 const pw = pay.locator('#password, input[name="login_password"]').first();
 await pw.waitFor({ state: "visible", timeout: 30000 });
 await pw.fill(password);
-await pay.locator("#btnLogin, button[type=submit]").first().click();
+await pay.locator(".spinner[aria-busy=true]").waitFor({ state: "hidden", timeout: 20000 }).catch(() => {});
+await pay.locator("#btnLogin").click();
 await pay.waitForLoadState("domcontentloaded");
 await pay.waitForTimeout(6000);
 await snap(pay, "logged-in-review");
@@ -114,6 +121,6 @@ const ids = {
   urlParams: Object.fromEntries(new URL(page.url()).searchParams),
 };
 console.log("candidate IDs:", ids);
-writeFileSync(`${dir}/result.json`, JSON.stringify({ url, variant, finalUrl: page.url(), ids, network, log }, null, 2));
+writeFileSync(`${dir}/result.json`, JSON.stringify({ url, variant, orderToken, finalUrl: page.url(), ids, network, log }, null, 2));
 console.log(`network:\n  ${network.join("\n  ")}`);
 await browser.close();

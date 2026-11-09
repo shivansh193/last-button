@@ -12,15 +12,20 @@
     "spike:link": "tsx scripts/spike-1-create-link.ts",
     "spike:pay": "tsx scripts/spike-2-buyer-bot.ts",
     "spike:webhook": "tsx scripts/spike-3-webhook.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/node": "^26.6.6",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },
   "dependencies": {
     "dotenv": "^18.0.10",
+    "express": "^4.21.2",
     "playwright": "^1.64.0"
   }
 }

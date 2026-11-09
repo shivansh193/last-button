@@ -16,12 +16,13 @@ const requests: Record<string, any> = {
     integration_mode: "LINK",
     type: "BUY_NOW",
     reusable: "MULTIPLE",
-    return_url: (process.env.PUBLIC_BASE_URL ?? "https://example.com") + "/thanks",
+    // PayPal rejects http://localhost; use an https base.
+    return_url: (process.env.PUBLIC_BASE_URL?.startsWith("https") ? process.env.PUBLIC_BASE_URL : "https://last-button.onrender.com") + "/thanks",
     line_items: [
       {
         name: "Spike: Cast T-shirt",
         description: "Last Button spike 1: per-size price, flat shipping, percentage tax",
-        unit_amount: { currency_code: "USD", value: "18.00" },
+        // No product-level unit_amount: PayPal rejects it when the variants carry prices.
         variants: {
           dimensions: [
             {
