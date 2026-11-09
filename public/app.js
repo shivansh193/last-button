@@ -83,7 +83,8 @@ function oldCell(row) {
   const b = row.button;
   const [label, tone] = KIND[b.kind] || KIND.unknown;
   const f = b.fields;
-  const keys = ["item_name", "amount", "currency_code", "on0", "option_amount0", "option_amount1", "shipping", "shipping2", "tax_rate", "tax", "undefined_quantity", "quantity", "hosted_button_id", "a3", "t3"];
+  const optKeys = Object.keys(f).filter((k) => /^option_amount\d+$/.test(k));
+  const keys = ["item_name", "amount", "currency_code", "on0", ...optKeys, "shipping", "shipping2", "tax_rate", "tax", "undefined_quantity", "quantity", "hosted_button_id", "a3", "t3"];
   const shown = keys.filter((k) => f[k] !== undefined && f[k] !== "").map((k) => `${k}=${esc(String(f[k]).slice(0, 40))}`);
   if (f.encrypted) shown.push("encrypted=<i>[locked]</i>");
   if (b.selectOptions?.os0?.length) shown.push(`os0=[${esc(b.selectOptions.os0.map((o) => o.value).join(", "))}]`);
