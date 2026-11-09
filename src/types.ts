@@ -41,6 +41,7 @@ export interface Provenance {
   quote?: string; // verbatim snippet from the page (page_context)
   confidence: number; // 0..1
   note?: string;
+  confirmed?: boolean; // the owner clicked confirm (or edited)
 }
 
 export interface SpecField<T> {
@@ -155,4 +156,5 @@ export interface Migration {
   scan: ScanResult;
   rows: MigrationRow[];
   isDemo: boolean;
+  sourceHtml?: string; // pasted HTML, kept for the patched download
 }

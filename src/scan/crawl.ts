@@ -2,7 +2,7 @@
 // Pages whose scripts mention PayPal are rendered in Chromium to catch JS-built buttons.
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import * as cheerio from "cheerio";
 import { detectButtons, type RawButton } from "./detect.js";
 import { renderHtml } from "./browser.js";
@@ -124,8 +124,11 @@ export async function scanUrl(startUrl: string): Promise<ScanResult> {
     buttons: [],
     skipped: [],
   };
+  // "/x/" and "/x/index.html" are the same page.
+  const canon = (u: string) => u.split("#")[0].replace(/\/(index|default)\.(html?|php|asp)$/i, "/");
   const queue: string[] = [start.href.split("#")[0]];
-  const seen = new Set(queue);
+  const seen = new Set(queue.map(canon));
+  const contentSeen = new Set<string>();
   while (queue.length && result.pages.length < MAX_PAGES) {
     const url = queue.shift()!;
     const u = new URL(url);
@@ -133,11 +136,14 @@ export async function scanUrl(startUrl: string): Promise<ScanResult> {
       result.skipped.push(`${u.pathname} (robots.txt)`);
       continue;
     }
-    const pagePath = u.pathname.startsWith(scope) ? u.pathname.slice(scope.length) || "(start page)" : u.pathname;
+    const pagePath = u.pathname.startsWith(scope) ? u.pathname.slice(scope.length) || "index.html" : u.pathname;
     const pageIdx = result.pages.length;
     try {
       const page = await fetchPage(url);
       if (!page.type.includes("html")) continue;
+      const digest = createHash("sha1").update(page.html).digest("hex");
+      if (contentSeen.has(digest)) continue; // same page under another address
+      contentSeen.add(digest);
       const scanned = await scanDocument(page.html, { url, pageIdx, pagePath });
       result.pages.push({ url, path: pagePath, status: page.status, rendered: scanned.rendered, buttons: scanned.buttons.length, error: scanned.renderError });
       result.buttons.push(...scanned.buttons);
@@ -147,8 +153,8 @@ export async function scanUrl(startUrl: string): Promise<ScanResult> {
           const next = new URL($(a).attr("href")!, page.finalUrl);
           next.hash = "";
           if (next.origin !== origin || !next.pathname.startsWith(scope) || SKIP_EXT.test(next.pathname)) return;
-          if (!seen.has(next.href)) {
-            seen.add(next.href);
+          if (!seen.has(canon(next.href))) {
+            seen.add(canon(next.href));
             queue.push(next.href);
           }
         } catch {}
