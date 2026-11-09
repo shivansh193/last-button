@@ -9,3 +9,5 @@ runs/
 playwright-report/
 test-results/
 data/
+demo/takes/
+demo/out/
