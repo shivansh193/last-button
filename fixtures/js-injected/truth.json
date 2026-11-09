@@ -1,0 +1,14 @@
+{
+  "site": "js-injected",
+  "description": "Riverside Rowing Club: two buttons built by JavaScript at page load, plus a static encrypted button.",
+  "buttons": [
+    { "key": "learn-to-row", "page": "index.html", "index": 0, "kind": "buy_now", "affected": true, "jsInjected": true,
+      "expected": { "name": "Learn to Row course", "price": "95.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false } },
+    { "key": "regatta-entry", "page": "index.html", "index": 1, "kind": "buy_now", "affected": true, "jsInjected": true,
+      "expected": { "name": "Club regatta entry", "price": "30.00", "currency": "USD",
+        "variants": { "dimension": "Boat class", "options": [ { "label": "Single", "price": "30.00" }, { "label": "Double", "price": "45.00" } ] },
+        "shipping": null, "taxPercent": null, "quantityAdjustable": false } },
+    { "key": "hoodie-encrypted", "page": "index.html", "index": 2, "kind": "encrypted", "affected": true,
+      "expected": { "name": "Club hoodie", "price": "38.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false } }
+  ]
+}

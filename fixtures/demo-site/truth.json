@@ -1,0 +1,57 @@
+{
+  "site": "demo-site",
+  "description": "Millbrook Players: a fictional 2010-era community theatre with 9 PayPal Website Payments Standard buttons.",
+  "buttons": [
+    {
+      "key": "adult-ticket", "page": "index.html", "index": 0,
+      "kind": "buy_now", "affected": true,
+      "expected": { "name": "Earnest - Adult ticket", "price": "16.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false }
+    },
+    {
+      "key": "concession-ticket", "page": "index.html", "index": 1,
+      "kind": "buy_now", "affected": true,
+      "expected": { "name": "Earnest - Concession ticket", "price": "9.50", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false }
+    },
+    {
+      "key": "tshirt", "page": "shop.html", "index": 0,
+      "kind": "buy_now", "affected": true,
+      "expected": {
+        "name": "Crew T-shirt", "price": "18.00", "currency": "USD",
+        "variants": { "dimension": "Size", "options": [
+          { "label": "Small", "price": "18.00" }, { "label": "Medium", "price": "18.00" },
+          { "label": "Large", "price": "18.00" }, { "label": "XL", "price": "21.00" } ] },
+        "shipping": { "first": "4.50", "additional": "1.50" }, "taxPercent": null, "quantityAdjustable": false
+      }
+    },
+    {
+      "key": "bundle-cart", "page": "shop.html", "index": 1,
+      "kind": "add_to_cart", "affected": true,
+      "expected": { "name": "Programme and poster bundle", "price": "12.00", "currency": "USD", "variants": null, "shipping": { "first": "3.00", "additional": "1.00" }, "taxPercent": "8.25", "quantityAdjustable": false }
+    },
+    {
+      "key": "raffle", "page": "shop.html", "index": 2,
+      "kind": "buy_now", "affected": true,
+      "expected": { "name": "Christmas raffle ticket", "price": "2.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": true }
+    },
+    {
+      "key": "season-pass-hosted", "page": "support.html", "index": 0,
+      "kind": "hosted", "affected": true,
+      "note": "hosted_button_id only; the price is in the paragraph above ($54, not the $64 comparison price).",
+      "expected": { "name": "Season Pass 2026-27", "price": "54.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false }
+    },
+    {
+      "key": "gift-voucher-encrypted", "page": "support.html", "index": 1,
+      "kind": "encrypted", "affected": true,
+      "note": "encrypted blob; the price is only in the image alt text.",
+      "expected": { "name": "Gift voucher", "price": "25.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false }
+    },
+    {
+      "key": "donate", "page": "support.html", "index": 2,
+      "kind": "donate", "affected": false
+    },
+    {
+      "key": "friends-subscribe", "page": "support.html", "index": 3,
+      "kind": "subscribe", "affected": false
+    }
+  ]
+}

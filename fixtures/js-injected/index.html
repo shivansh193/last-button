@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Riverside Rowing Club - Join &amp; Shop</title>
+<style>body{font-family:Tahoma,sans-serif;background:#0b3d5c;color:#123;margin:0}#w{width:700px;margin:24px auto;background:#f4fbff;padding:20px;border-radius:6px}.item{border-bottom:1px solid #bcd;padding:12px 0}</style>
+</head>
+<body>
+<div id="w">
+  <h1>Riverside Rowing Club</h1>
+  <div class="item">
+    <h3>Learn to Row course</h3>
+    <p>Six Sunday mornings on the water with a coach. $95.</p>
+    <div class="pp" data-item="Learn to Row course" data-amount="95.00"></div>
+  </div>
+  <div class="item">
+    <h3>Club regatta entry</h3>
+    <p>Single sculls $30, double sculls $45 per boat.</p>
+    <div class="pp" data-item="Club regatta entry" data-amount="30.00" data-options="Single:30.00|Double:45.00"></div>
+  </div>
+  <div class="item">
+    <h3>Club hoodie</h3>
+    <p>Navy with the crossed oars on the back.</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIG1QYJKoZIhvcNAQcEoIIGxjCCBsICAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCa8sLk2Q9pRm0xYvN7tBf3WcJh5Ue1oKi6ZgTd4AnPy-----END PKCS7-----">
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="Buy the club hoodie ($38)">
+    </form>
+  </div>
+</div>
+<script>
+// "Dynamic" PayPal buttons, the 2012 way.
+document.querySelectorAll('.pp').forEach(function (el) {
+  var f = document.createElement('form');
+  f.action = 'https://www.paypal.com/cgi-bin/webscr';
+  f.method = 'post';
+  var html = '<input type="hidden" name="cmd" value="_xclick">' +
+    '<input type="hidden" name="business" value="captain@riversiderowing.example">' +
+    '<input type="hidden" name="item_name" value="' + el.dataset.item + '">' +
+    '<input type="hidden" name="amount" value="' + el.dataset.amount + '">' +
+    '<input type="hidden" name="currency_code" value="USD">' +
+    '<input type="hidden" name="no_shipping" value="1">';
+  if (el.dataset.options) {
+    html += '<input type="hidden" name="on0" value="Boat class"><select name="os0">';
+    el.dataset.options.split('|').forEach(function (o, i) {
+      var p = o.split(':');
+      html += '<option value="' + p[0] + '">' + p[0] + ' $' + p[1] + '</option>';
+      html += '';
+    });
+    html += '</select>';
+    el.dataset.options.split('|').forEach(function (o, i) {
+      var p = o.split(':');
+      html += '<input type="hidden" name="option_select' + i + '" value="' + p[0] + '">' +
+              '<input type="hidden" name="option_amount' + i + '" value="' + p[1] + '">';
+    });
+  }
+  html += '<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="Buy Now">';
+  f.innerHTML = html;
+  el.appendChild(f);
+});
+</script>
+</body>
+</html>

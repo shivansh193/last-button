@@ -1,0 +1,27 @@
+{
+  "site": "wordpress-style",
+  "description": "Hollow Oak Pottery: WordPress page with a link-style button, a plugin form, a flat-tax cart button and a hosted Donate button.",
+  "buttons": [
+    {
+      "key": "mug-link", "page": "index.html", "index": 0, "kind": "buy_now", "affected": true,
+      "expected": { "name": "Speckled mug", "price": "28.00", "currency": "GBP", "variants": null, "shipping": { "first": "6.50", "additional": null }, "taxPercent": null, "quantityAdjustable": false }
+    },
+    {
+      "key": "bowl-glaze", "page": "index.html", "index": 1, "kind": "buy_now", "affected": true,
+      "expected": {
+        "name": "Hand-thrown bowl", "price": "34.00", "currency": "GBP",
+        "variants": { "dimension": "Glaze", "options": [ { "label": "Celadon", "price": null }, { "label": "Tenmoku", "price": null }, { "label": "Ash white", "price": null } ] },
+        "shipping": { "first": "8.00", "additional": null }, "taxPercent": null, "quantityAdjustable": false
+      }
+    },
+    {
+      "key": "workshop-flat-tax", "page": "index.html", "index": 2, "kind": "add_to_cart", "affected": true,
+      "note": "Flat tax amount (tax=2.25) has no direct Payment Links equivalent; should go to the owner.",
+      "expected": { "name": "Glaze workshop voucher", "price": "45.00", "currency": "GBP", "variants": null, "shipping": null, "taxPercent": "5.00", "quantityAdjustable": false }
+    },
+    {
+      "key": "hosted-donate", "page": "index.html", "index": 3, "kind": "donate", "affected": false,
+      "note": "Hosted button whose image is a Donate button: not affected."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "site": "inline-table",
+  "description": "St Aidan's Church Hall: events table with hosted Pay Now buttons whose price sits in a neighbouring cell, plus a subscription.",
+  "buttons": [
+    { "key": "harvest-hosted", "page": "index.html", "index": 0, "kind": "hosted", "affected": true,
+      "expected": { "name": "Harvest Supper", "price": "12.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false } },
+    { "key": "quiz-hosted", "page": "index.html", "index": 1, "kind": "hosted", "affected": true,
+      "expected": { "name": "Quiz Night (team of 4)", "price": "20.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false } },
+    { "key": "fair-hosted", "page": "index.html", "index": 2, "kind": "hosted", "affected": true,
+      "expected": { "name": "Christmas Fair - stall pitch", "price": "15.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false } },
+    { "key": "deposit", "page": "index.html", "index": 3, "kind": "buy_now", "affected": true,
+      "expected": { "name": "Hall hire deposit", "price": "50.00", "currency": "USD", "variants": null, "shipping": null, "taxPercent": null, "quantityAdjustable": false } },
+    { "key": "weekly-giving", "page": "index.html", "index": 4, "kind": "subscribe", "affected": false }
+  ]
+}
