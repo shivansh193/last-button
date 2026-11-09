@@ -117,12 +117,13 @@ Latest run (`eval/results.json`, Gemini `gemini-3.5-flash` with `gemini-3.1-flas
 | Hidden (saved/encrypted) prices recovered from page text | **6 / 6** |
 | Buttons routed to the owner for a click | **7 / 17 (41%)**: every AI-read price, plus a flat tax and unknown postage |
 | Wrong values that were *not* flagged for the owner | **0** |
-| Verification (buyer bot + Orders v2 amount check) | _see below_ |
+| Verification on the live Render deployment (buyer bot + Orders v2 + webhook) | **7 / 7** demo links paid, amounts matched to the cent, 7/7 signed webhooks received |
 
 **Read these numbers with care.**
 - I wrote the fixtures myself, and there are only 21 buttons. Real sites will be messier, so treat this as a regression test, not a benchmark.
 - Name matching is fuzzy: most expected words must be present, so "Millbrook Players gift voucher" counts for "Gift voucher".
 - The 41% routed to a person is deliberate. We would rather ask than charge a price the AI guessed.
+- The verified run is saved in [`fixtures/demo-run/`](fixtures/demo-run/) and shown at the live site's "Finished demo run" link. In an earlier local run, one of seven payments hit a transient PayPal sandbox error page; the bot now retries once, but only if no order was created yet.
 
 ## Run it yourself
 

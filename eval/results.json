@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-09T19:39:49.015Z",
+  "at": "2026-11-09T19:57:16.094Z",
   "ai": "gemini-3.5-flash",
   "sites": 4,
   "buttons": 21,
@@ -36,14 +36,12 @@
     "silentErrors": []
   },
   "verification": {
-    "runs": 4,
-    "passed": 3,
-    "passRate": "75%",
-    "failures": [
-      "The buyer bot couldn't finish: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Users\\Shivansh Kalra\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-dev-shm-usage --no-sandbox --user-data-dir=C:\\Users\\Shivansh Kalra\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-ZmWHYi --remote-debugging-pipe --no-startup-window\n<launched> pid=63796\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Shivansh Kalra\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-dev-shm-usage --no-sandbox --user-data-dir=C:\\Users\\Shivansh Kalra\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-ZmWHYi --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=63796\u001b[22m\n\u001b[2m  - [pid=63796] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=63796] <kill>\u001b[22m\n\u001b[2m  - [pid=63796] <will force kill>\u001b[22m\n\u001b[2m  - [pid=63796] <process did exit: exitCode=3221225794, signal=null>\u001b[22m\n\u001b[2m  - [pid=63796] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=63796] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=63796] <gracefully close end>\u001b[22m\n"
-    ]
+    "runs": 7,
+    "passed": 7,
+    "passRate": "100%",
+    "failures": []
   },
-  "seconds": 64,
+  "seconds": 22,
   "perButton": [
     {
       "site": "demo-site",
@@ -200,11 +198,12 @@
         "price": "page_context",
         "currency": "page_context",
         "variants": "page_context",
-        "shipping": "page_context",
+        "shipping": "unknown",
         "taxPercent": "page_context",
         "quantity": "default"
       },
       "needsOwner": [
+        "shipping",
         "price"
       ],
       "usedAI": true
@@ -229,12 +228,11 @@
         "price": "page_context",
         "currency": "page_context",
         "variants": "page_context",
-        "shipping": "unknown",
+        "shipping": "page_context",
         "taxPercent": "page_context",
         "quantity": "default"
       },
       "needsOwner": [
-        "shipping",
         "price"
       ],
       "usedAI": true
