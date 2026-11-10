@@ -4,7 +4,7 @@
 
 Live demo: **https://last-button.onrender.com** (free Render instance: the first load can take about a minute to wake up)
 Demo site to scan: https://last-button.onrender.com/demo-site/
-Video: _link added at submission_
+Video: **https://youtu.be/23sDp25akxE** (2:55)
 
 Built with **PayPal Payment Links and Buttons**, **PayPal Orders v2**, **PayPal webhooks**, **Gemini** (Google AI Studio), Playwright, AG Grid, Express/TypeScript and Render.
 
