@@ -46,7 +46,7 @@ assert abs(t - TARGET) < 1e-6, f"plan is {t}s, target {TARGET}s"
 
 # Segments: (id, chapter, file, src_start, src_end, out_duration, layout, badge)
 # speed = (src_end - src_start) / out_duration
-POPUP = "ch4bot/ch4bot.webm"   # PayPal checkout popup (568px wide content)
+POPUP = "ch4bot/ch4bot.webm"   # PayPal checkout popup (content is the top-left 568x752)
 BOTMAIN = "ch4bot/ch4bot-extra1.webm"
 ch4_verify_from = m("ch4", "clicked verify") + 0.8
 ch4_all = m("ch4", "all verified")
@@ -57,7 +57,7 @@ SEGMENTS = [
     ("c3", "ch3", "ch3/ch3.webm", 1.5, 19.5, 18.0, "full", None),
     ("c4a", "ch4", "ch4/ch4.webm", 1.5, ch4_verify_from, None, "full", None),
     ("c4b", "ch4", BOTMAIN, 1.0, 2.9, 1.9, "full", "Buyer bot's view"),
-    ("c4c", "ch4", POPUP, 10.0, 15.8, 5.8, "popup", "PayPal sandbox checkout"),
+    ("c4c", "ch4", POPUP, 8.0, 13.8, 5.8, "popup", "PayPal sandbox checkout"),
     ("c4d", "ch4", BOTMAIN, 20.5, 22.6, 2.1, "full", "Buyer bot's view"),
     ("c4e", "ch4", "ch4/ch4.webm", ch4_verify_from, ch4_all, 9.7, "full", "speed"),
     ("c4f", "ch4", "ch4/ch4.webm", ch4_all, m("ch4", "end"), None, "full", None),
@@ -149,7 +149,7 @@ def cut_segments():
         src = TAKES / p["file"]
         vf = [f"setpts=(PTS-STARTPTS)/{p['speed']:.5f}"]
         if p["layout"] == "popup":
-            vf.insert(0, "crop=568:900:0:0")
+            vf.insert(0, "crop=568:752:0:0")
         vf.append(f"fps={FPS}")
         ffmpeg("-ss", f"{p['src0']:.3f}", "-to", f"{p['src1']:.3f}", "-i", str(src), "-vf", ",".join(vf),
                "-t", f"{p['dur']:.3f}", "-c:v", "libx264", "-crf", "20", "-g", "30", "-pix_fmt", "yuv420p", "-an",
@@ -257,6 +257,8 @@ def build_html():
         js.append(f'tl.to("#{k}", {{opacity: 0, duration: 0.25, ease: "power1.in"}}, {s + d - 0.25});')
         js.append(f'tl.fromTo("#{k} .card, #{k} .cc > *, #{k} .center > *, #{k} .hookq > *", {{opacity: 0, y: 18}}, '
                   f'{{opacity: 1, y: 0, duration: 0.45, stagger: 0.12, ease: "power2.out"}}, {s + 0.15});')
+        # A slow drift so long slides never sit perfectly still.
+        js.append(f'tl.fromTo("#{k} > *", {{scale: 1}}, {{scale: 1.025, duration: {d}, ease: "none"}}, {s});')
     for ch in ["ch1", "ch2", "ch3", "ch4", "ch5"]:
         s, d = SEC[ch]
         js.append(f'tl.fromTo("#frame-{ch}", {{opacity: 0, scale: 0.985}}, {{opacity: 1, scale: 1, duration: 0.35, ease: "power2.out"}}, {s});')
@@ -280,7 +282,7 @@ def build_html():
 html, body {{ width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }}
 #root {{ position: relative; width: 1920px; height: 1080px; background: var(--bg); font-family: Geist, sans-serif; color: var(--ink); }}
 .clip {{ position: absolute; }}
-.slide {{ inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; }}
+.slide {{ inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; opacity: 0; }}
 .lbl {{ font-family: "Geist Mono", monospace; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }}
 .mono, code {{ font-family: "Geist Mono", monospace; }}
 code {{ font-size: .86em; color: var(--ink); background: #efe9dc; padding: 1px 6px; border-radius: 5px; }}
@@ -316,7 +318,7 @@ h2 {{ font-size: 60px; font-weight: 600; letter-spacing: -.03em; line-height: 1.
 .frame {{ left: 184px; top: 20px; width: 1552px; height: 976px; border-radius: 22px; background: var(--card); border: 1px solid var(--line);
   box-shadow: 0 30px 60px rgba(40, 32, 20, .16), 0 6px 14px rgba(40, 32, 20, .08); transform-origin: 50% 40%; }}
 video.rec {{ left: 192px; top: 28px; width: 1536px; height: 960px; border-radius: 16px; object-fit: cover; background: #fff; }}
-video.popup {{ left: 657px; top: 28px; width: 606px; height: 960px; object-fit: contain; border-radius: 0; box-shadow: 0 0 0 1px var(--line), 0 18px 40px rgba(0,0,0,.18); }}
+video.popup {{ left: 597px; top: 28px; width: 726px; height: 960px; object-fit: contain; border-radius: 0; box-shadow: 0 0 0 1px var(--line), 0 18px 40px rgba(0,0,0,.18); }}
 .badge {{ right: 214px; top: 46px; background: rgba(28, 26, 23, .86); color: #fff; font-family: "Geist Mono", monospace; font-size: 22px;
   padding: 8px 16px; border-radius: 999px; z-index: 5; }}
 .cap {{ left: 0; width: 1920px; top: 1006px; height: 62px; display: flex; align-items: center; justify-content: center;

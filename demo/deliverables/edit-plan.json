@@ -1,0 +1,346 @@
+{
+ "target": 175.0,
+ "sections": [
+  [
+   "hook",
+   0,
+   4
+  ],
+  [
+   "title",
+   4,
+   4
+  ],
+  [
+   "glance",
+   8,
+   12
+  ],
+  [
+   "card1",
+   20,
+   1.5
+  ],
+  [
+   "ch1",
+   21.5,
+   20
+  ],
+  [
+   "card2",
+   41.5,
+   1.5
+  ],
+  [
+   "ch2",
+   43,
+   27
+  ],
+  [
+   "slideAI",
+   70,
+   9
+  ],
+  [
+   "card3",
+   79,
+   1.5
+  ],
+  [
+   "ch3",
+   80.5,
+   18
+  ],
+  [
+   "slidePP",
+   98.5,
+   9
+  ],
+  [
+   "card4",
+   107.5,
+   1.5
+  ],
+  [
+   "ch4",
+   109,
+   32.5
+  ],
+  [
+   "card5",
+   141.5,
+   1.5
+  ],
+  [
+   "ch5",
+   143,
+   17
+  ],
+  [
+   "results",
+   160,
+   9.5
+  ],
+  [
+   "outro",
+   169.5,
+   5.5
+  ]
+ ],
+ "segments": [
+  {
+   "id": "c1a",
+   "ch": "ch1",
+   "file": "ch1/ch1.webm",
+   "src0": 4.0,
+   "src1": 23.5,
+   "start": 21.5,
+   "dur": 15.0,
+   "speed": 1.3,
+   "layout": "full",
+   "badge": null
+  },
+  {
+   "id": "c1b",
+   "ch": "ch1",
+   "file": "ch1/ch1.webm",
+   "src0": 24.5,
+   "src1": 29.5,
+   "start": 36.5,
+   "dur": 5.0,
+   "speed": 1.0,
+   "layout": "full",
+   "badge": null
+  },
+  {
+   "id": "c2",
+   "ch": "ch2",
+   "file": "ch2/ch2.webm",
+   "src0": 1.3,
+   "src1": 31.0,
+   "start": 43,
+   "dur": 27.0,
+   "speed": 1.0999999999999999,
+   "layout": "full",
+   "badge": null
+  },
+  {
+   "id": "c3",
+   "ch": "ch3",
+   "file": "ch3/ch3.webm",
+   "src0": 1.5,
+   "src1": 19.5,
+   "start": 80.5,
+   "dur": 18.0,
+   "speed": 1.0,
+   "layout": "full",
+   "badge": null
+  },
+  {
+   "id": "c4a",
+   "ch": "ch4",
+   "file": "ch4/ch4.webm",
+   "src0": 1.5,
+   "src1": 4.96,
+   "start": 109,
+   "dur": 3.46,
+   "speed": 1.0,
+   "layout": "full",
+   "badge": null
+  },
+  {
+   "id": "c4b",
+   "ch": "ch4",
+   "file": "ch4bot/ch4bot-extra1.webm",
+   "src0": 1.0,
+   "src1": 2.9,
+   "start": 112.46,
+   "dur": 1.9,
+   "speed": 1.0,
+   "layout": "full",
+   "badge": "Buyer bot's view"
+  },
+  {
+   "id": "c4c",
+   "ch": "ch4",
+   "file": "ch4bot/ch4bot.webm",
+   "src0": 8.0,
+   "src1": 13.8,
+   "start": 114.36,
+   "dur": 5.8,
+   "speed": 1.0000000000000002,
+   "layout": "popup",
+   "badge": "PayPal sandbox checkout"
+  },
+  {
+   "id": "c4d",
+   "ch": "ch4",
+   "file": "ch4bot/ch4bot-extra1.webm",
+   "src0": 20.5,
+   "src1": 22.6,
+   "start": 120.16,
+   "dur": 2.1,
+   "speed": 1.0000000000000007,
+   "layout": "full",
+   "badge": "Buyer bot's view"
+  },
+  {
+   "id": "c4e",
+   "ch": "ch4",
+   "file": "ch4/ch4.webm",
+   "src0": 4.96,
+   "src1": 786.59,
+   "start": 122.26,
+   "dur": 9.7,
+   "speed": 80.58041237113403,
+   "layout": "full",
+   "badge": "speed"
+  },
+  {
+   "id": "c4f",
+   "ch": "ch4",
+   "file": "ch4/ch4.webm",
+   "src0": 786.59,
+   "src1": 797.51,
+   "start": 131.96,
+   "dur": 9.54,
+   "speed": 1.1446540880503102,
+   "layout": "full",
+   "badge": null
+  },
+  {
+   "id": "c5",
+   "ch": "ch5",
+   "file": "ch5/ch5.webm",
+   "src0": 1.2,
+   "src1": 20.3,
+   "start": 143,
+   "dur": 17.0,
+   "speed": 1.1235294117647059,
+   "layout": "full",
+   "badge": null
+  }
+ ],
+ "captions": [
+  [
+   21.5,
+   4.41,
+   "A community theatre site from 2010."
+  ],
+  [
+   25.91,
+   5.04,
+   "Nine PayPal buttons, pasted in years ago."
+  ],
+  [
+   30.95,
+   5.55,
+   "Two are saved or encrypted: the price isn't in the code."
+  ],
+  [
+   36.5,
+   5.0,
+   "The owner just pastes the address."
+  ],
+  [
+   43.0,
+   3.86,
+   "Nine buttons found. Seven may stop working."
+  ],
+  [
+   46.86,
+   4.07,
+   "Readable buttons are copied field by field."
+  ],
+  [
+   50.93,
+   3.64,
+   "Gemini reads the page where settings are hidden."
+  ],
+  [
+   54.57,
+   8.16,
+   "Its answer must quote the page, word for word."
+  ],
+  [
+   62.73,
+   4.0,
+   "Donate and Subscribe aren't affected: left alone."
+  ],
+  [
+   66.73,
+   3.27,
+   "Prices the AI read wait for the owner's click."
+  ],
+  [
+   80.5,
+   5.12,
+   "One click: a PayPal Payment Link per product."
+  ],
+  [
+   85.62,
+   7.26,
+   "Seven links, created in the PayPal sandbox."
+  ],
+  [
+   92.88,
+   2.71,
+   "Same sizes and prices, on PayPal's own page."
+  ],
+  [
+   95.59,
+   2.91,
+   "XL: $21, plus $4.50 postage."
+  ],
+  [
+   109.0,
+   3.46,
+   "Verify all seven links."
+  ],
+  [
+   112.46,
+   9.8,
+   "A test buyer pays through each link in the PayPal sandbox."
+  ],
+  [
+   122.26,
+   4.8,
+   "Then the order is read back from PayPal."
+  ],
+  [
+   127.06,
+   4.9,
+   "Green only when paid = price + postage + tax."
+  ],
+  [
+   131.96,
+   4.22,
+   "7 of 7 verified, each with a signed webhook."
+  ],
+  [
+   136.18,
+   5.32,
+   "Bundle: $12 + $3 postage + $0.99 tax = $15.99."
+  ],
+  [
+   143.0,
+   3.85,
+   "Swap them in: download the patched page\u2026"
+  ],
+  [
+   146.85,
+   3.24,
+   "\u2026or paste one line into your template."
+  ],
+  [
+   150.09,
+   4.64,
+   "Product markup lets AI shopping agents buy too."
+  ],
+  [
+   154.73,
+   5.27,
+   "The theatre's buttons, now PayPal Payment Links."
+  ]
+ ]
+}

@@ -99,8 +99,8 @@ left = music + 0.25 * np.roll(music, d)
 right = music + 0.25 * np.roll(music, d * 2)
 st = np.stack([left, right], 1)
 st = st / np.max(np.abs(st)) * 0.8
-import soundfile as sf  # available in the base image? fall back to wave
 try:
+    import soundfile as sf
     sf.write(f"{TMP}/music_loop.wav", st, SR)
 except Exception:
     with wave.open(f"{TMP}/music_loop.wav", "w") as w:

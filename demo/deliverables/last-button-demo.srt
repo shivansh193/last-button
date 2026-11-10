@@ -1,0 +1,148 @@
+1
+00:00:00,300 --> 00:00:06,080
+PayPal may retire its old copy-and-paste
+buttons after January 1, 2027.
+
+2
+00:00:06,120 --> 00:00:07,760
+This is Last Button.
+
+3
+00:00:08,200 --> 00:00:11,466
+Paste a site's address. It finds the old
+buttons,
+
+4
+00:00:11,506 --> 00:00:14,569
+AI rebuilds each one as a PayPal Payment
+Link,
+
+5
+00:00:14,609 --> 00:00:18,050
+and a test buyer proves every link takes a
+payment.
+
+6
+00:00:20,400 --> 00:00:23,855
+Here's a community theatre site from 2010.
+Its ticket,
+
+7
+00:00:23,895 --> 00:00:27,803
+T-shirt and raffle buttons were pasted
+from PayPal years ago,
+
+8
+00:00:27,843 --> 00:00:32,721
+and two of them are saved or encrypted, so
+the price isn't even in the code.
+
+9
+00:00:32,761 --> 00:00:36,450
+The owner isn't a developer. They just
+paste the address.
+
+10
+00:00:41,900 --> 00:00:44,653
+Nine buttons found, seven may stop
+working.
+
+11
+00:00:44,693 --> 00:00:49,265
+Readable buttons are copied field by
+field. For the hidden season pass,
+
+12
+00:00:49,305 --> 00:00:53,551
+Gemini reads the page, and it has to quote
+the page word for word,
+
+13
+00:00:53,591 --> 00:00:57,903
+or its answer is thrown away. Donate and
+Subscribe aren't affected,
+
+14
+00:00:57,943 --> 00:01:02,230
+so they're left alone. Anything the AI
+priced waits for one click.
+
+15
+00:01:10,200 --> 00:01:15,975
+The AI only fills gaps, with structured
+output, a schema check and a fallback model.
+
+16
+00:01:16,015 --> 00:01:18,300
+It never sets a price on its own.
+
+17
+00:01:19,400 --> 00:01:25,394
+One click creates a PayPal Payment Link
+for each product, with the same sizes,
+
+18
+00:01:25,434 --> 00:01:27,947
+per-size prices, postage and tax.
+
+19
+00:01:27,987 --> 00:01:33,480
+Here's the T-shirt on PayPal's own page:
+XL at $21, plus $4.50 postage.
+
+20
+00:01:38,700 --> 00:01:44,470
+Under the hood: the Payment Links API,
+Orders v2 to read every payment back,
+
+21
+00:01:44,510 --> 00:01:46,650
+and a signed PayPal webhook.
+
+22
+00:01:47,900 --> 00:01:53,678
+Now the proof. A test buyer pays through
+every new link in the PayPal sandbox,
+
+23
+00:01:53,718 --> 00:01:59,646
+picking the dearest option. Then Last
+Button asks PayPal what was actually paid,
+
+24
+00:01:59,686 --> 00:02:03,973
+and checks it against price, postage and
+tax, to the cent.
+
+25
+00:02:04,013 --> 00:02:09,716
+Only then does a row turn green. The
+poster bundle: $12, $3 postage, 99¢ tax.
+
+26
+00:02:09,756 --> 00:02:10,950
+$15.99, exactly.
+
+27
+00:02:21,900 --> 00:02:27,133
+To swap them in, download the patched
+page, or paste one line into your template.
+
+28
+00:02:27,173 --> 00:02:32,250
+There's product markup too, so AI shopping
+agents can find a working checkout.
+
+29
+00:02:40,200 --> 00:02:45,691
+On our four test sites every field was
+right, but we wrote those sites ourselves.
+
+30
+00:02:45,731 --> 00:02:47,780
+Live, 7 of 7 payments matched.
+
+31
+00:02:49,700 --> 00:02:53,020
+Last Button. Built with PayPal and Gemini.
+
